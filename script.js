@@ -1,8 +1,9 @@
-const totalCards = 30;
+const totalCards = 12;
 let cards = [];
 let selectedCards = [];
 let valueUSed = [];
 let currentMove = 0;
+let currentAttempts = 0;
 
 let cardTemplate = '<div class="card"><div class="back"></div><div class="face"></div></div>'
 
@@ -12,6 +13,9 @@ function activate (e){
 
         if (!selectedCards [0] || selectedCards [0] != e.target) {
             selectedCards.push(e.target);
+
+            currentAttempts++;
+            document.querySelector('#stats').innerHTML = currentAttempts + ' intentos';
 
             if (++currentMove == 2) {
                 if (selectedCards [0].querySelectorAll('.face')[0].innerHTML == selectedCards[1].querySelectorAll('.face')[0].innerHTML) {
