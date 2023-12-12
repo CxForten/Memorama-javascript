@@ -8,10 +8,10 @@ let currentAttempts = 0;
 let cardTemplate = '<div class="card"><div class="back"></div><div class="face"></div></div>'
 
 function activate (e){
-    if (currentMove < 2) {
-        e.target.classList.add('active'); 
+    if (currentMove < 2) { 
 
-        if (!selectedCards [0] || selectedCards [0] != e.target) {
+        if ((!selectedCards [0] || selectedCards [0] != e.target) && !e.target.classList.contains('active')) {
+            e.target.classList.add('active');
             selectedCards.push(e.target);
 
             currentAttempts++;
